@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Measuring Tools Crown Protractor</title>
+  <desc id="description">Two slim rulers emerge from the outer ends of a gold crown-protractor silhouette surrounding a slate measurement arc.</desc>
+  <g id="crown-left-measuring-ruler" transform="rotate(-24 50 108)">
+    <rect x="42" y="66" width="16" height="51" rx="3" fill="#253F68" stroke="#F5BD4F" stroke-width="4"/>
+    <path d="M44 75h7m-7 8h4m-4 8h7m-7 8h4" fill="none" stroke="#F5BD4F" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <g id="crown-right-measuring-ruler" transform="rotate(24 142 108)">
+    <rect x="134" y="66" width="16" height="51" rx="3" fill="#253F68" stroke="#F5BD4F" stroke-width="4"/>
+    <path d="M148 75h-7m7 8h-4m4 8h-7m7 8h-4" fill="none" stroke="#F5BD4F" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <path id="measuring-tools-crown-silhouette" d="M40 138A56 56 0 0 1 50 106L49 68 73 85 96 43 119 85 143 68 142 106A56 56 0 0 1 152 138Z" fill="#F5BD4F"/>
+  <path id="measuring-tools-protractor-arc" d="M48 138a48 48 0 0 1 96 0Z" fill="#253F68"/>
+  <path id="measuring-tools-protractor-opening" d="M68 138a28 28 0 0 1 56 0Z" fill="#FFFFFF"/>
+  <path id="measuring-tools-protractor-graduations" d="M57 116 65 120m-2-15 7 7m5-15 4 8m17-12v10m21-6-4 8m16 0-7 7m13 4-8 4" fill="none" stroke="#F5BD4F" stroke-width="3" stroke-linecap="round"/>
+  <circle id="measuring-tools-protractor-pivot" cx="96" cy="138" r="5" fill="#F5BD4F"/>
+  <text id="measuring-tools-ruler-wordmark" x="187" y="91" fill="#F5BD4F" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text id="measuring-tools-tools-wordmark" x="191" y="129" fill="#B67714" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="11">TOOLS</text>
+</svg>

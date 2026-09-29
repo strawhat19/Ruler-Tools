@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 330" width="1120" height="330" role="img" aria-labelledby="comparison-title">
+<title id="comparison-title">Ruler Tools V9 — original and shaded rear spikes</title>
+<rect width="1120" height="330" fill="#FFFFFF"/>
+<text x="30" y="40" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#253F68">Ruler Tools / V9</text>
+<text x="30" y="86" font-family="Arial, Helvetica, sans-serif" font-size="14" letter-spacing="1.2" fill="#687587">01 / ORIGINAL V7 SPIKES</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 18 430 160" role="img" aria-labelledby="preview-0-ruler-title preview-0-ruler-description" x="30" y="105" width="510" height="190">
+  <title id="preview-0-ruler-title">Ruler Tools — Spiked Crown</title>
+  <desc id="preview-0-ruler-description">The exact five pointed crown positions and integrated protractor from V7. RULER is navy and TOOLS is warm gold, matching the V5 text colors.</desc>
+  <g id="preview-0-symmetric-crown-protractor-mark">
+    <path id="preview-0-symmetric-crown-silhouette" d="M40 138 A56 56 0 0 1 43.377 118.847 L35.378 103 L53.102 102.004 A56 56 0 0 1 60.004 95.102 L54.5 66.12 L76.847 85.377 A56 56 0 0 1 86.276 82.851 L96 43 L105.724 82.851 A56 56 0 0 1 115.153 85.377 L137.5 66.12 L131.996 95.102 A56 56 0 0 1 138.898 102.004 L156.622 103 L148.623 118.847 A56 56 0 0 1 152 138 Z" fill="#F5BD4F" />
+    <path id="preview-0-symmetric-protractor-arc" d="M48 138a48 48 0 0 1 96 0Z" fill="#253F68" />
+    <path id="preview-0-symmetric-protractor-opening" d="M68 138a28 28 0 0 1 56 0Z" fill="#FFFFFF" />
+    <g id="preview-0-connected-tapered-graduations" fill="#F5BD4F">
+      <path id="preview-0-crown-graduation-1" d="M53.149 112.221L65.689 120.5L52.249 113.779Z" />
+      <path id="preview-0-crown-graduation-2" d="M71.779 94.249L78.5 107.689L70.221 95.149Z" />
+      <path id="preview-0-crown-graduation-3" d="M96.9 88L96 103L95.1 88Z" />
+      <path id="preview-0-crown-graduation-4" d="M121.779 95.149L113.5 107.689L120.221 94.249Z" />
+      <path id="preview-0-crown-graduation-5" d="M139.751 113.779L126.311 120.5L138.851 112.221Z" />
+    </g>
+    <circle id="preview-0-symmetric-protractor-pivot" cx="96" cy="138" r="5" fill="#F5BD4F" />
+  </g>
+  <text id="preview-0-ruler-wordmark" x="187" y="91" fill="#253F68" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text id="preview-0-tools-wordmark" x="191" y="129" fill="#B67714" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="11">TOOLS</text>
+</svg>
+<text x="580" y="86" font-family="Arial, Helvetica, sans-serif" font-size="14" letter-spacing="1.2" fill="#687587">02 / SHADED REAR SPIKES</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 18 430 160" role="img" aria-labelledby="preview-1-ruler-title preview-1-ruler-description" x="580" y="105" width="510" height="190">
+  <title id="preview-1-ruler-title">Ruler Tools — Layered Spiked Crown</title>
+  <desc id="preview-1-ruler-description">The exact five pointed crown positions and integrated protractor from V7. Four shaded gold rear points sit between the original foreground spikes in mirrored pairs. RULER is navy and TOOLS is warm gold, matching the V5 text colors.</desc>
+  <g id="preview-1-symmetric-crown-protractor-mark">
+    <g id="preview-1-shaded-rear-crown-points" fill="#B88935">
+      <path id="preview-1-rear-crown-point-1" d="M52.89 108.922L42.26 84.26L66.922 94.89Z" />
+      <path id="preview-1-rear-crown-point-2" d="M73.205 91.263L73.742 54.93L92.373 86.127Z" />
+      <path id="preview-1-rear-crown-point-3" d="M99.627 86.127L118.258 54.93L118.795 91.263Z" />
+      <path id="preview-1-rear-crown-point-4" d="M125.078 94.89L149.74 84.26L139.11 108.922Z" />
+    </g>
+    <path id="preview-1-symmetric-crown-silhouette" d="M40 138 A56 56 0 0 1 43.377 118.847 L35.378 103 L53.102 102.004 A56 56 0 0 1 60.004 95.102 L54.5 66.12 L76.847 85.377 A56 56 0 0 1 86.276 82.851 L96 43 L105.724 82.851 A56 56 0 0 1 115.153 85.377 L137.5 66.12 L131.996 95.102 A56 56 0 0 1 138.898 102.004 L156.622 103 L148.623 118.847 A56 56 0 0 1 152 138 Z" fill="#F5BD4F" />
+    <path id="preview-1-symmetric-protractor-arc" d="M48 138a48 48 0 0 1 96 0Z" fill="#253F68" />
+    <path id="preview-1-symmetric-protractor-opening" d="M68 138a28 28 0 0 1 56 0Z" fill="#FFFFFF" />
+    <g id="preview-1-connected-tapered-graduations" fill="#F5BD4F">
+      <path id="preview-1-crown-graduation-1" d="M53.149 112.221L65.689 120.5L52.249 113.779Z" />
+      <path id="preview-1-crown-graduation-2" d="M71.779 94.249L78.5 107.689L70.221 95.149Z" />
+      <path id="preview-1-crown-graduation-3" d="M96.9 88L96 103L95.1 88Z" />
+      <path id="preview-1-crown-graduation-4" d="M121.779 95.149L113.5 107.689L120.221 94.249Z" />
+      <path id="preview-1-crown-graduation-5" d="M139.751 113.779L126.311 120.5L138.851 112.221Z" />
+    </g>
+    <circle id="preview-1-symmetric-protractor-pivot" cx="96" cy="138" r="5" fill="#F5BD4F" />
+  </g>
+  <text id="preview-1-ruler-wordmark" x="187" y="91" fill="#253F68" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text id="preview-1-tools-wordmark" x="191" y="129" fill="#B67714" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="11">TOOLS</text>
+</svg>
+</svg>
