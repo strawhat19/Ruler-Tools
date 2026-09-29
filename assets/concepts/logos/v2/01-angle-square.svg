@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Angle Square</title>
+  <desc id="description">A carpenter square with a bright right-angle highlight and measured edges.</desc>
+  <path d="M37 40v101h103v-22H59V40z" fill="#2150A3"/>
+  <path d="M71 105h55V50H71z" fill="none" stroke="#B8D84B" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M44 58h10m-10 18h6m-6 18h10m41 40v-10m19 10v-6m19 6v-10" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+  <text x="187" y="91" fill="#183666" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="800" letter-spacing="1">RULER</text>
+  <text x="190" y="128" fill="#668323" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="10">TOOLS</text>
+</svg>

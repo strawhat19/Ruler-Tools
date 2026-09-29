@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Endpoint System</title>
+  <desc id="description">Two dimension lines meet at a shared endpoint in a minimal drafting mark.</desc>
+  <path d="M43 123V55h93M43 123h93" fill="none" stroke="#392E68" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M62 105V74h56" fill="none" stroke="#A889EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="43" cy="123" r="10" fill="#FFB25B"/>
+  <circle cx="136" cy="55" r="10" fill="#FFB25B"/>
+  <circle cx="136" cy="123" r="10" fill="#FFB25B"/>
+  <text x="190" y="92" fill="#392E68" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="700" letter-spacing="1">RULER</text>
+  <text x="194" y="129" fill="#765EA5" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="10">TOOLS</text>
+</svg>

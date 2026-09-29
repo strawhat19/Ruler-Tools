@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Variable Scale</title>
+  <desc id="description">Four graduated horizontal bars form an abstract measured scale.</desc>
+  <rect x="25" y="27" width="130" height="126" rx="27" fill="#202A36"/>
+  <rect x="47" y="49" width="78" height="12" rx="6" fill="#F1EBDD"/>
+  <rect x="47" y="72" width="56" height="12" rx="6" fill="#EFB05D"/>
+  <rect x="47" y="95" width="83" height="12" rx="6" fill="#F1EBDD"/>
+  <rect x="47" y="118" width="45" height="12" rx="6" fill="#EFB05D"/>
+  <path d="M136 48v82" stroke="#EFB05D" stroke-width="3" stroke-linecap="round"/>
+  <text x="189" y="92" fill="#202A36" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text x="193" y="129" fill="#9D6840" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="10">TOOLS</text>
+</svg>

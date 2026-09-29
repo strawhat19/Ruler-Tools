@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Measure Line</title>
+  <desc id="description">A measured span with endpoint markers and graduated ticks, paired with a compact wordmark.</desc>
+  <path d="M32 90h134" stroke="#164B67" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="32" cy="90" r="9" fill="#E5A342"/>
+  <circle cx="166" cy="90" r="9" fill="#E5A342"/>
+  <path d="M57 78v24m22-16v16m22-24v24m22-16v16m22-24v24" fill="none" stroke="#164B67" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 48v17m134-17v17M32 115v17m134-17v17" fill="none" stroke="#E5A342" stroke-width="4" stroke-linecap="round"/>
+  <text x="206" y="88" fill="#164B67" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" letter-spacing="1">RULER</text>
+  <text x="209" y="127" fill="#5C7180" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="600" letter-spacing="11">TOOLS</text>
+</svg>

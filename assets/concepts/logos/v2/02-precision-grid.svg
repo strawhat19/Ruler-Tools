@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Precision Grid</title>
+  <desc id="description">A circular target centered on a construction grid with a precise point of measurement.</desc>
+  <rect x="26" y="26" width="128" height="128" rx="26" fill="#E8F3F3"/>
+  <path d="M48 68h84M48 90h84M48 112h84M68 48v84M90 48v84M112 48v84" stroke="#AACDCD" stroke-width="2"/>
+  <circle cx="90" cy="90" r="34" fill="none" stroke="#007D83" stroke-width="7"/>
+  <path d="M90 69v42M69 90h42" stroke="#007D83" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="90" cy="90" r="7" fill="#E38B45"/>
+  <text x="190" y="90" fill="#07565C" font-family="Arial, Helvetica, sans-serif" font-size="53" font-weight="700" letter-spacing="1">RULER</text>
+  <text x="193" y="128" fill="#42868A" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="10">TOOLS</text>
+</svg>

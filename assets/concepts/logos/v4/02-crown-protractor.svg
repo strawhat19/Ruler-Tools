@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Crown Protractor</title>
+  <desc id="description">A royal crown sits behind a semicircular protractor with angle graduations.</desc>
+  <path d="M40 60 57 77 76 46 94 77 119 46 138 77 155 60 146 105H49Z" fill="#253F68"/>
+  <circle cx="76" cy="46" r="5" fill="#F5BD4F"/>
+  <circle cx="119" cy="46" r="5" fill="#F5BD4F"/>
+  <path d="M40 139a56 56 0 0 1 112 0Z" fill="#F5BD4F"/>
+  <path d="M67 139a29 29 0 0 1 58 0Z" fill="#FFFFFF"/>
+  <path d="M51 128 63 130m-3-25 10 6m10-22 6 11m20-11-5 11m30 5-10 6m20 17-12 2" fill="none" stroke="#253F68" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="96" cy="138" r="5" fill="#253F68"/>
+  <text x="187" y="91" fill="#253F68" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text x="191" y="129" fill="#B67714" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="11">TOOLS</text>
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 180" role="img" aria-labelledby="title description">
+  <title id="title">Ruler Tools — Integrated Crown Protractor</title>
+  <desc id="description">A crown and protractor share one continuous navy outline around a gold measurement arc.</desc>
+  <path d="M40 138A56 56 0 0 1 50 106L49 68 73 85 96 43 119 85 143 68 142 106A56 56 0 0 1 152 138Z" fill="#253F68"/>
+  <path d="M48 138a48 48 0 0 1 96 0Z" fill="#F5BD4F"/>
+  <path d="M68 138a28 28 0 0 1 56 0Z" fill="#FFFFFF"/>
+  <path d="M57 116 65 120m-2-15 7 7m5-15 4 8m17-12v10m21-6-4 8m16 0-7 7m13 4-8 4" fill="none" stroke="#253F68" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="96" cy="138" r="5" fill="#253F68"/>
+  <text x="187" y="91" fill="#253F68" font-family="Arial, Helvetica, sans-serif" font-size="55" font-weight="800" letter-spacing="1">RULER</text>
+  <text x="191" y="129" fill="#B67714" font-family="Arial, Helvetica, sans-serif" font-size="31" font-weight="700" letter-spacing="11">TOOLS</text>
+</svg>
