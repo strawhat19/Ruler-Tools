@@ -1,6 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="34 31 124 124" role="img" aria-labelledby="ruler-title ruler-description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 13 160 160" role="img" aria-labelledby="ruler-title ruler-description">
   <title id="ruler-title">Ruler Tools — Spiked Crown</title>
   <desc id="ruler-description">The exact five pointed crown positions and integrated protractor from V7.</desc>
+  <rect id="ruler-favicon-dark-background" class="ruler-favicon-dark-background" x="16" y="13" width="160" height="160" rx="36" fill="#253F68"/>
   <g id="symmetric-crown-protractor-mark">
     <path id="symmetric-crown-silhouette" d="M40 138 A56 56 0 0 1 43.377 118.847 L35.378 103 L53.102 102.004 A56 56 0 0 1 60.004 95.102 L54.5 66.12 L76.847 85.377 A56 56 0 0 1 86.276 82.851 L96 43 L105.724 82.851 A56 56 0 0 1 115.153 85.377 L137.5 66.12 L131.996 95.102 A56 56 0 0 1 138.898 102.004 L156.622 103 L148.623 118.847 A56 56 0 0 1 152 138 Z" fill="#F5BD4F"/>
     <path id="symmetric-protractor-arc" d="M48 138a48 48 0 0 1 96 0Z" fill="#FFFFFF"/>
