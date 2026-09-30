@@ -1,0 +1,49 @@
+.information-page {
+    padding-top: 34px;
+    padding-bottom: 72px;
+}
+
+.information-back-link {
+    gap: 8px;
+    display: inline-flex;
+    font-size: .8125rem;
+    align-items: center;
+    color: var(--muted);
+    font-weight: 600;
+
+    &:hover { color: var(--navy); transform: translateX(-3px); }
+}
+
+.information-back-icon { transform: rotate(180deg); }
+.information-header { max-width: 780px; padding: 36px 0 38px; }
+.information-icon-wrap { display: grid; width: 58px; height: 58px; margin-bottom: 22px; border-radius: 16px; color: var(--navy); background: var(--surface-warm); place-items: center; }
+.information-eyebrow { margin-bottom: 12px; }
+.information-title { margin: 0; font-size: clamp(2.25rem, 5vw, 3.5rem); line-height: 1.15; letter-spacing: -.055em; font-family: var(--font-heading); font-weight: 800; }
+.information-description { margin: 20px 0 0; max-width: 690px; color: var(--muted); font-size: 1.0625rem; line-height: 1.8; }
+.information-review-date { margin: 18px 0 0; color: var(--muted); font-size: .75rem; }
+.information-layout { gap: 62px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; align-items: start; }
+.information-sections { min-width: 0; }
+.information-section { padding: 27px 0; border-top: 1px solid var(--line); }
+.information-section-title { margin: 0 0 13px; color: var(--navy); font-size: 1.1875rem; font-family: var(--font-heading); letter-spacing: -.025em; font-weight: 750; }
+.information-section-paragraph { margin: 0 0 13px; color: var(--muted); font-size: .9375rem; line-height: 1.9; }
+.information-section-paragraph:last-child { margin-bottom: 0; }
+.information-related { padding: 24px; border: 1px solid var(--line); background: var(--surface-soft); border-radius: 18px; }
+.information-related-title { margin: 0 0 19px; font-size: .875rem; font-family: var(--font-heading); font-weight: 750; }
+.information-related-navigation { gap: 17px; display: flex; flex-direction: column; }
+.information-related-link, .information-piratechs-link { gap: 9px; display: flex; color: var(--navy); align-items: center; font-size: .8125rem; font-weight: 600; }
+.information-related-link:hover, .information-piratechs-link:hover { color: var(--gold-dark); transform: translateX(3px); }
+.information-piratechs-link { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+@media (max-width: 850px) {
+    .information-layout { gap: 28px; grid-template-columns: minmax(0, 1fr); }
+    .information-related { max-width: 420px; }
+}
+
+@media (max-width: 460px) {
+    .information-page { padding-top: 26px; padding-bottom: 42px; }
+    .information-header { padding: 28px 0; }
+    .information-eyebrow { font-size: .625rem; }
+    .information-description { font-size: .9375rem; }
+    .information-section { padding: 23px 0; }
+    .information-section-paragraph { font-size: .875rem; }
+}

@@ -5,12 +5,21 @@ import { useHeader } from './Header.logic';
 import RulerMarquee from '../RulerMarquee/RulerMarquee';
 
 export default function Header() {
-    const { menuOpen, setMenuOpen, browseTools, browseSaved, savedCount } = useHeader();
+    const { page, pageHref, linkTo, menuOpen, setMenuOpen, browseSaved, savedCount } = useHeader();
 
     return (
         <header id={`site-header`} className={`site-header`}>
             <div id={`header-content`} className={`header-content page-container`}>
-                <a id={`header-brand`} className={`header-brand`} href={`#`} aria-label={`Ruler Tools home`}>
+                <a
+                    href={pageHref(`home`)}
+                    id={`header-brand`}
+                    className={`header-brand`}
+                    aria-label={`Ruler Tools home`}
+                    onClick={(event) => {
+                        linkTo(`home`)(event);
+                        setMenuOpen(false);
+                    }}
+                >
                     <Logo id={`header-logo`} className={`header-logo`} light />
                 </a>
                 <button
@@ -29,17 +38,44 @@ export default function Header() {
                     aria-label={`Main navigation`}
                     className={`header-navigation ${menuOpen ? `is-open` : ``}`}
                 >
-                    <a id={`nav-explore`} className={`nav-link is-active`} href={`#directory`} onClick={browseTools}>
-                        <Icon id={`nav-explore-icon`} name={`compass`} size={17} />
-                        {`Explore tools`}
+                    <a
+                        href={pageHref(`about`)}
+                        id={`nav-about`}
+                        onClick={(event) => {
+                            linkTo(`about`)(event);
+                            setMenuOpen(false);
+                        }}
+                        aria-current={page === `about` ? `page` : undefined}
+                        className={`nav-link ${page === `about` ? `is-active` : ``}`}
+                    >
+                        <Icon id={`nav-about-icon`} name={`info`} size={17} />
+                        {`About`}
                     </a>
-                    <a id={`nav-categories`} className={`nav-link`} href={`#categories`} onClick={() => setMenuOpen(false)}>
-                        <Icon id={`nav-categories-icon`} name={`filters`} size={17} />
-                        {`Categories`}
+                    <a
+                        href={pageHref(`terms`)}
+                        id={`nav-terms`}
+                        onClick={(event) => {
+                            linkTo(`terms`)(event);
+                            setMenuOpen(false);
+                        }}
+                        aria-current={page === `terms` ? `page` : undefined}
+                        className={`nav-link ${page === `terms` ? `is-active` : ``}`}
+                    >
+                        <Icon id={`nav-terms-icon`} name={`terms`} size={17} />
+                        {`Terms`}
                     </a>
-                    <a id={`nav-about`} className={`nav-link`} href={`#about`} onClick={() => setMenuOpen(false)}>
-                        <Icon id={`nav-about-icon`} name={`heart`} size={17} />
-                        {`Our philosophy`}
+                    <a
+                        href={pageHref(`privacy`)}
+                        id={`nav-privacy-policy`}
+                        onClick={(event) => {
+                            linkTo(`privacy`)(event);
+                            setMenuOpen(false);
+                        }}
+                        aria-current={page === `privacy` ? `page` : undefined}
+                        className={`nav-link ${page === `privacy` ? `is-active` : ``}`}
+                    >
+                        <Icon id={`nav-privacy-policy-icon`} name={`shield`} size={17} />
+                        {`Privacy Policy`}
                     </a>
                 </nav>
                 <button id={`header-saved`} className={`header-saved`} type={`button`} onClick={browseSaved}>

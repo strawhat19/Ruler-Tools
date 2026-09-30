@@ -3,10 +3,10 @@ import type { Tool, ToolCategory } from './types';
 export const categories: ToolCategory[] = [
     { id: `calculators`, name: `Calculators`, icon: `calculator`, description: `Make the numbers work` },
     { id: `measuring`, name: `Measuring`, icon: `ruler`, description: `Get the right dimensions` },
-    { id: `leveling`, name: `Level & angle`, icon: `gauge`, description: `Find your balance` },
+    { id: `leveling`, name: `Level & Angle`, icon: `gauge`, description: `Find your balance` },
     { id: `converters`, name: `Converters`, icon: `convert`, description: `From this to that` },
-    { id: `design`, name: `Color & design`, icon: `palette`, description: `A little creative precision` },
-    { id: `developer`, name: `Developer tools`, icon: `code`, description: `Work smarter with code` },
+    { id: `design`, name: `Color & Design`, icon: `palette`, description: `A little creative precision` },
+    { id: `developer`, name: `Developer Tools`, icon: `code`, description: `Work smarter with code` },
 ];
 
 // Launch URLs are the tools' official websites or store listings. No live API is used.

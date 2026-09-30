@@ -3,7 +3,7 @@ import type { Platform } from '../../shared/types';
 import { useDirectory } from '../../shared/DirectoryContext';
 
 export const platformFilters: { id: Platform; name: string; icon: `compass` | `globe` | `puzzle` | `phone` }[] = [
-    { id: `all`, name: `All tools`, icon: `compass` },
+    { id: `all`, name: `All Tools`, icon: `compass` },
     { id: `website`, name: `Websites`, icon: `globe` },
     { id: `extension`, name: `Extensions`, icon: `puzzle` },
     { id: `app`, name: `Apps`, icon: `phone` },

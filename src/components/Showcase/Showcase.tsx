@@ -3,7 +3,7 @@ import Icon from '../Icon/Icon';
 import { useShowcase } from './Showcase.logic';
 
 export default function Showcase() {
-    const { exploreMeasuring } = useShowcase();
+    const { pageHref, exploreMeasuring } = useShowcase();
 
     return (
         <div id={`hero-showcase`} className={`hero-showcase`}>
@@ -56,7 +56,12 @@ export default function Showcase() {
                     <text id={`protractor-zero`} className={`protractor-zero`} x={`22`} y={`151`} fill={`rgba(255, 255, 255, .65)`} fontSize={`9`}>{`0`}</text>
                     <text id={`protractor-end`} className={`protractor-end`} x={`271`} y={`151`} fill={`rgba(255, 255, 255, .65)`} fontSize={`9`}>{`180`}</text>
                 </svg>
-                <a id={`showcase-link`} className={`showcase-link`} href={`#directory`} onClick={exploreMeasuring}>
+                <a
+                    id={`showcase-link`}
+                    className={`showcase-link`}
+                    href={pageHref(`home`)}
+                    onClick={exploreMeasuring}
+                >
                     {`Explore measuring tools`}
                     <Icon id={`showcase-link-icon`} name={`arrow`} size={15} />
                 </a>

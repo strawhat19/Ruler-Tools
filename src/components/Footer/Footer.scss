@@ -40,6 +40,28 @@
 .footer-logo { max-width: none; width: 292px; height: 69px; position: absolute; top: -9px; left: -10px; }
 .footer-tagline { margin: 0; color: var(--muted); font-size: .75rem; }
 .footer-storage-note { gap: 6px; display: flex; align-items: center; color: var(--muted); font-size: .6875rem; }
+.footer-details { gap: 14px; z-index: 1; display: flex; position: relative; flex-direction: column; padding-bottom: 24px; }
+.footer-meta { gap: 12px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+.footer-copyright { margin: 0; color: var(--muted); font-size: .6875rem; }
+
+.footer-piratechs-link {
+    gap: 7px;
+    display: flex;
+    color: var(--muted);
+    align-items: center;
+    font-size: .6875rem;
+    transition: color .2s ease, transform .2s ease;
+
+    &:hover {
+        color: var(--gold);
+        transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+        outline-offset: 4px;
+        outline: 2px solid var(--gold);
+    }
+}
 
 @media (max-width: 800px) {
     .site-footer::before { top: auto; right: -60px; bottom: -35px; width: 260px; height: 260px; opacity: .025; }
@@ -50,6 +72,7 @@
     .about-browse { margin-left: 90px; }
     .footer-bottom { gap: 6px 20px; flex-wrap: wrap; }
     .footer-storage-note { width: 100%; padding-bottom: 6px; }
+    .footer-meta { gap: 12px; }
 }
 
 @media (max-width: 460px) {

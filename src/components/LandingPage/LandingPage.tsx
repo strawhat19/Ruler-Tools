@@ -1,16 +1,21 @@
-import { useRef, useState } from 'react';
 import Logo from '../Logo/Logo';
+import { useRef, useState, useEffect } from 'react';
 import { palette, styles } from './LandingPage.styles';
 import { categories } from '../../shared/catalog';
 import RulerMarquee from '../RulerMarquee/RulerMarquee';
 import { useDirectory } from '../../shared/DirectoryContext';
+import { useNavigation } from '../../shared/NavigationContext';
+import InformationPage from '../InformationPage/InformationPage';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { elementProps, platformFilters, toolColors, toolSymbols } from './LandingPage.logic';
 import { Alert, View, Text, Linking, Pressable, TextInput, ScrollView, LayoutAnimation, useWindowDimensions } from 'react-native';
 
 export default function LandingPage() {
+    const year = new Date().getFullYear();
     const scroll = useRef<ScrollView>(null);
+    const { page, navigate } = useNavigation();
     const { width } = useWindowDimensions();
+    const pendingDirectoryScroll = useRef(false);
     const [directoryY, setDirectoryY] = useState(0);
     const {
         sort,
@@ -35,7 +40,21 @@ export default function LandingPage() {
         change();
     };
 
-    const browseTools = () => scroll.current?.scrollTo({ y: directoryY, animated: true });
+    useEffect(() => {
+        if (!pendingDirectoryScroll.current) {
+            scroll.current?.scrollTo({ y: 0, animated: true });
+        }
+    }, [page]);
+
+    const browseTools = () => {
+        if (page !== `home`) {
+            pendingDirectoryScroll.current = true;
+            navigate(`home`, `tool-directory`);
+            return;
+        }
+
+        scroll.current?.scrollTo({ y: directoryY, animated: true });
+    };
 
     const openTool = async (url: string) => {
         try {
@@ -85,7 +104,7 @@ export default function LandingPage() {
                     <Pressable
                         accessibilityRole={`button`}
                         accessibilityLabel={`Show ${savedCount} saved tools`}
-                        accessibilityState={{ selected: savedOnly }}
+                        accessibilityState={{ selected: page === `home` && savedOnly }}
                         style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
                         onPress={() => {
                             animateChange(() => setSavedOnly(!savedOnly));
@@ -103,9 +122,47 @@ export default function LandingPage() {
                             style={styles.headerBookmarkText}
                             {...elementProps(`header-saved-tools-count`)}
                         >
-                            {`Saved ${savedCount}`}
+                            {`My toolkit ${savedCount}`}
                         </Text>
                     </Pressable>
+                </View>
+
+                <View
+                    style={styles.navigation}
+                    {...elementProps(`ruler-tools-navigation`)}
+                >
+                    {([
+                        { page: `home`, label: `Explore`, icon: `⊞` },
+                        { page: `about`, label: `About`, icon: `ⓘ` },
+                        { page: `terms`, label: `Terms`, icon: `§` },
+                        { page: `privacy`, label: `Privacy Policy`, icon: `▣` },
+                    ] as const).map((item) => (
+                        <Pressable
+                            key={item.page}
+                            accessibilityRole={`button`}
+                            accessibilityState={{ selected: page === item.page }}
+                            onPress={() => navigate(item.page)}
+                            style={({ pressed }) => [
+                                styles.navigationLink,
+                                page === item.page && styles.navigationLinkActive,
+                                pressed && styles.pressed,
+                            ]}
+                            {...elementProps(`ruler-tools-navigation-link`, item.page)}
+                        >
+                            <Text
+                                style={styles.navigationIcon}
+                                {...elementProps(`ruler-tools-navigation-icon`, item.page)}
+                            >
+                                {item.icon}
+                            </Text>
+                            <Text
+                                style={styles.navigationLabel}
+                                {...elementProps(`ruler-tools-navigation-label`, item.page)}
+                            >
+                                {item.label}
+                            </Text>
+                        </Pressable>
+                    ))}
                 </View>
 
                 <RulerMarquee
@@ -123,6 +180,10 @@ export default function LandingPage() {
                     style={styles.page}
                     {...elementProps(`ruler-tools-page`)}
                 >
+                    {page === `home` ? (
+                        <View
+                            {...elementProps(`ruler-tools-home-content`)}
+                        >
                     <View
                         style={styles.hero}
                         {...elementProps(`ruler-tools-hero`)}
@@ -276,7 +337,7 @@ export default function LandingPage() {
                                 style={[styles.categoryText, category === `all` && styles.activeText]}
                                 {...elementProps(`category-filter-label`, `all`)}
                             >
-                                {`All tools`}
+                                {`All Tools`}
                             </Text>
                         </Pressable>
                         {categories.map((item) => (
@@ -305,7 +366,15 @@ export default function LandingPage() {
                     </View>
 
                     <View
-                        onLayout={(event) => setDirectoryY(event.nativeEvent.layout.y)}
+                        onLayout={(event) => {
+                            const position = event.nativeEvent.layout.y;
+                            setDirectoryY(position);
+
+                            if (pendingDirectoryScroll.current) {
+                                pendingDirectoryScroll.current = false;
+                                scroll.current?.scrollTo({ y: position, animated: true });
+                            }
+                        }}
                         {...elementProps(`tool-directory`)}
                     >
                         <View
@@ -564,6 +633,10 @@ export default function LandingPage() {
                     <RulerMarquee
                         id={`featured-ruler-marquee`}
                     />
+                        </View>
+                    ) : (
+                        <InformationPage page={page} />
+                    )}
                     <View
                         style={styles.footer}
                         {...elementProps(`ruler-tools-footer`)}
@@ -596,6 +669,26 @@ export default function LandingPage() {
                         >
                             {`One tool to rule them all.\nAn independent directory. Tools belong to their respective makers.`}
                         </Text>
+                        <Text
+                            style={styles.footerText}
+                            {...elementProps(`ruler-tools-footer-copyright`)}
+                        >
+                            {`© ${year} Ruler Tools. All rights reserved.`}
+                        </Text>
+                        <Pressable
+                            accessibilityRole={`link`}
+                            accessibilityLabel={`Visit Piratechs`}
+                            onPress={() => void openTool(`https://piratechs.com/`)}
+                            style={({ pressed }) => [styles.footerLink, pressed && styles.pressed]}
+                            {...elementProps(`ruler-tools-footer-piratechs-link`)}
+                        >
+                            <Text
+                                style={styles.footerLinkText}
+                                {...elementProps(`ruler-tools-footer-piratechs-label`)}
+                            >
+                                {`Made by Piratechs ↗`}
+                            </Text>
+                        </Pressable>
                     </View>
                 </View>
             </ScrollView>

@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# Leave existing files and directories available normally.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [END]
+
+# Relative destinations retain the app's deployment directory.
+RewriteCond %{REQUEST_URI} !/about$
+RewriteRule ^(?:about|about-us|aboutus)/*$ about [R=301,L,NC]
+
+RewriteCond %{REQUEST_URI} !/terms$
+RewriteRule ^(?:terms|terms-of-use|terms-of-service|terms-and-conditions|tos)/*$ terms [R=301,L,NC]
+
+RewriteCond %{REQUEST_URI} !/privacy-policy$
+RewriteRule ^(?:privacy-policy|privacy|privacy-notice|privacy_policy|privacypolicy)/*$ privacy-policy [R=301,L,NC]
+
+# Only known app pages need the single-page entry point.
+RewriteRule ^(?:about|terms|privacy-policy)$ index.html [END]

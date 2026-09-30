@@ -49,8 +49,8 @@
     .header-saved { margin-left: auto; padding: 10px; }
     .header-saved-label { display: none; }
     .header-menu-toggle { display: grid; border: 0; background: transparent; color: #fff; padding: 10px; order: 3; }
-    .header-navigation { display: none; left: -20px; right: -20px; top: 76px; position: absolute; background: var(--navy); padding: 22px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px #253f6814; }
-    .header-navigation.is-open { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+    .header-navigation { gap: 24px; display: flex; left: -20px; right: -20px; top: 76px; max-height: calc(100dvh - 100px); overflow-y: auto; position: absolute; flex-direction: column; align-items: flex-start; background: var(--navy); padding: 22px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px #253f6814; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity 180ms ease, transform 220ms ease, visibility 180ms ease; }
+    .header-navigation.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-link { font-size: 1rem; }
     .nav-link .ruler-icon { display: block; }
 }

@@ -65,6 +65,35 @@ export const styles = StyleSheet.create({
         fontWeight: `600`,
         color: palette.background,
     },
+    navigation: {
+        gap: 6,
+        flexWrap: `wrap`,
+        paddingVertical: 10,
+        marginHorizontal: -24,
+        paddingHorizontal: 12,
+        flexDirection: `row`,
+        backgroundColor: palette.navy,
+    },
+    navigationLink: {
+        gap: 6,
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 11,
+        flexDirection: `row`,
+        alignItems: `center`,
+    },
+    navigationLinkActive: {
+        backgroundColor: `rgba(255,255,255,0.12)`,
+    },
+    navigationIcon: {
+        fontSize: 16,
+        color: palette.gold,
+    },
+    navigationLabel: {
+        fontSize: 12,
+        fontWeight: `600`,
+        color: palette.background,
+    },
     hero: {
         gap: 18,
         paddingTop: 42,
@@ -463,6 +492,15 @@ export const styles = StyleSheet.create({
         fontSize: 11,
         lineHeight: 19,
         color: palette.onNavyMuted,
+    },
+    footerLink: {
+        paddingVertical: 6,
+        alignSelf: `flex-start`,
+    },
+    footerLinkText: {
+        fontSize: 12,
+        fontWeight: `600`,
+        color: palette.gold,
     },
     pressed: {
         opacity: 0.7,
