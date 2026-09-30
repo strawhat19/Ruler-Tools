@@ -1,0 +1,31 @@
+{
+  "name": "Ruler Tools — One Tool to Rule Them All",
+  "short_name": "Ruler Tools",
+  "description": "Your everyday directory of useful websites, extensions, and apps.",
+  "id": "./",
+  "scope": "./",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#253f68",
+  "icons": [
+    {
+      "src": "./brand/ruler-tools-favicon.svg?v=3",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./brand/ruler-tools-192.png?v=3",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./brand/ruler-tools-512.png?v=3",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

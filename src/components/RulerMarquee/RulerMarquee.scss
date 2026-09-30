@@ -1,0 +1,109 @@
+.ruler-marquee {
+    height: 84px;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    position: relative;
+    pointer-events: none;
+    background: var(--gold);
+    border-top: 1px solid var(--navy);
+    border-bottom: 2px solid var(--navy);
+}
+
+.ruler-marquee-track {
+    height: 100%;
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: ruler-marquee-scroll var(--ruler-duration) linear infinite;
+}
+
+.ruler-marquee-group {
+    height: 100%;
+    display: flex;
+    flex-shrink: 0;
+    min-width: 100vw;
+    width: var(--ruler-group-width);
+}
+
+.ruler-marquee-unit {
+    flex: 1;
+    height: 100%;
+    position: relative;
+}
+
+.ruler-marquee-tick {
+    top: 0;
+    width: 1px;
+    height: 13px;
+    display: block;
+    position: absolute;
+    background: rgba(37, 63, 104, .36);
+
+    &.is-major {
+        width: 2px;
+        height: 35px;
+        background: var(--navy);
+    }
+
+    &.is-middle {
+        height: 23px;
+        background: rgba(37, 63, 104, .65);
+    }
+}
+
+.ruler-marquee-number {
+    top: 45px;
+    left: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    position: absolute;
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-variant-numeric: tabular-nums;
+}
+
+.ruler-marquee--slim {
+    height: 28px;
+    border-top: 0;
+    border-bottom: 0;
+    background: #fff;
+
+    .ruler-marquee-track { animation-direction: reverse; }
+
+    .ruler-marquee-tick {
+        height: 5px;
+        background: rgba(37, 63, 104, .25);
+
+        &.is-major {
+            width: 1px;
+            height: 12px;
+            background: var(--gold);
+        }
+
+        &.is-middle {
+            height: 8px;
+            background: rgba(37, 63, 104, .45);
+        }
+    }
+
+    .ruler-marquee-number {
+        top: 14px;
+        left: 4px;
+        font-size: 8px;
+        line-height: 1;
+        color: rgba(37, 63, 104, .64);
+    }
+}
+
+@keyframes ruler-marquee-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ruler-marquee-track {
+        animation: none;
+        will-change: auto;
+    }
+}

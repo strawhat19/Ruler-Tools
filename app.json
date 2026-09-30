@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Ruler Tools",
+    "slug": "ruler-tools",
+    "icon": "./assets/app-icon.png",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.rulertools.app"
+    },
+    "android": {
+      "package": "com.rulertools.app"
+    },
+    "web": {
+      "bundler": "metro",
+      "favicon": "./public/brand/ruler-tools-192.png",
+      "name": "Ruler Tools",
+      "shortName": "Ruler Tools",
+      "description": "One Tool to Rule Them All. A directory of useful websites, extensions, and apps."
+    }
+  }
+}

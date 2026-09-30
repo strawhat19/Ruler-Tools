@@ -1,0 +1,66 @@
+:root {
+    --gold: #f5bd4f;
+    --navy: #253f68;
+    --ink: var(--navy);
+    --muted: rgba(37, 63, 104, .64);
+    --line: rgba(37, 63, 104, .12);
+    --surface: rgba(37, 63, 104, .05);
+    --line-warm: rgba(245, 189, 79, .35);
+    --surface-soft: rgba(37, 63, 104, .025);
+    --surface-warm: rgba(245, 189, 79, .16);
+    --gold-dark: #b67714;
+    --font-body: 'DM Sans', sans-serif;
+    --font-heading: 'Manrope', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 133px;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: #fff;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+}
+
+button, input, select { font: inherit; }
+button, a, input, select { -webkit-tap-highlight-color: transparent; }
+button, a { touch-action: manipulation; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; }
+button, a, select { transition: color 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 220ms ease; }
+button:disabled { cursor: default; }
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+::selection { color: var(--navy); background: var(--gold); }
+
+.ruler-tools-page { width: 100%; overflow: clip; }
+.page-container { width: min(1160px, calc(100% - 80px)); margin-inline: auto; }
+.ruler-icon { flex-shrink: 0; vertical-align: middle; }
+.ruler-tools-logo { display: block; object-fit: contain; }
+.section-eyebrow { margin: 0 0 12px; color: var(--gold-dark); font-size: .75rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+
+.skip-to-tools {
+    top: 10px;
+    left: 16px;
+    z-index: 100;
+    padding: 14px;
+    position: fixed;
+    background: white;
+    border-radius: 8px;
+    transform: translateY(-160%);
+    &:focus { transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+    .page-container { width: calc(100% - 40px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}

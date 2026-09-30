@@ -1,0 +1,56 @@
+.site-header {
+    --muted: rgba(255, 255, 255, .75);
+    --line: rgba(255, 255, 255, .14);
+    --gold-dark: var(--gold);
+
+    top: 0;
+    z-index: 30;
+    color: #fff;
+    position: sticky;
+    background: var(--navy);
+    backdrop-filter: blur(18px);
+
+    &::before {
+        inset: 0;
+        opacity: .025;
+        content: '';
+        position: absolute;
+        pointer-events: none;
+        background-size: 190px;
+        background-repeat: no-repeat;
+        background-position: right 8% center;
+        background-image: url('../../../public/brand/ruler-tools-icon-light.svg');
+    }
+}
+
+.header-content { gap: 26px; height: 88px; z-index: 1; display: flex; position: relative; align-items: center; justify-content: space-between; }
+.header-brand { width: 203px; height: 68px; overflow: hidden; flex-shrink: 0; position: relative; }
+.header-logo { width: 393px; height: 93px; max-width: none; position: absolute; top: -14px; left: -13px; }
+.header-navigation { gap: 30px; display: flex; align-items: center; }
+.nav-link { gap: 8px; display: flex; color: var(--muted); font-size: .875rem; align-items: center; font-weight: 500; white-space: nowrap; }
+.nav-link .ruler-icon { display: block; color: var(--gold-dark); }
+.nav-link:hover, .nav-link.is-active { color: #fff; }
+.nav-link.is-active { font-weight: 650; }
+.header-saved { gap: 9px; display: flex; border: 1px solid var(--gold); border-radius: 8px; background: transparent; color: #fff; padding: 11px 16px; align-items: center; font-size: .8125rem; font-weight: 600; }
+.header-saved:hover { background: var(--surface-warm); border-color: var(--gold); }
+.header-saved-count { display: grid; width: 20px; height: 20px; border-radius: 50%; background: var(--surface-warm); place-items: center; font-size: .75rem; }
+.header-menu-toggle { display: none; }
+
+@media (max-width: 1040px) {
+    .header-navigation { gap: 19px; }
+    .header-content { gap: 16px; }
+    .nav-link { font-size: .8125rem; }
+}
+
+@media (max-width: 880px) {
+    .header-content { height: 76px; gap: 12px; }
+    .header-brand { width: 169px; height: 62px; margin-left: -5px; }
+    .header-logo { width: 334px; height: 79px; top: -8px; left: -12px; }
+    .header-saved { margin-left: auto; padding: 10px; }
+    .header-saved-label { display: none; }
+    .header-menu-toggle { display: grid; border: 0; background: transparent; color: #fff; padding: 10px; order: 3; }
+    .header-navigation { display: none; left: -20px; right: -20px; top: 76px; position: absolute; background: var(--navy); padding: 22px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px #253f6814; }
+    .header-navigation.is-open { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+    .nav-link { font-size: 1rem; }
+    .nav-link .ruler-icon { display: block; }
+}
