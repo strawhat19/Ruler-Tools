@@ -36,7 +36,9 @@ export const styles = StyleSheet.create({
     header: {
         gap: 14,
         minHeight: 82,
+        flexWrap: `wrap`,
         overflow: `hidden`,
+        paddingVertical: 14,
         marginHorizontal: -24,
         paddingHorizontal: 24,
         flexDirection: `row`,
@@ -59,6 +61,12 @@ export const styles = StyleSheet.create({
         flexDirection: `row`,
         alignItems: `center`,
         backgroundColor: `rgba(255,255,255,0.07)`,
+    },
+    headerAccountActions: {
+        gap: 8,
+        flexWrap: `wrap`,
+        flexDirection: `row`,
+        alignItems: `center`,
     },
     headerBookmarkText: {
         fontSize: 13,

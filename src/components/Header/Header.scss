@@ -31,9 +31,38 @@
 .nav-link .ruler-icon { display: block; color: var(--gold-dark); }
 .nav-link:hover, .nav-link.is-active { color: #fff; }
 .nav-link.is-active { font-weight: 650; }
-.header-saved { gap: 9px; display: flex; border: 1px solid var(--gold); border-radius: 8px; background: transparent; color: #fff; padding: 11px 16px; align-items: center; font-size: .8125rem; font-weight: 600; }
-.header-saved:hover { background: var(--surface-warm); border-color: var(--gold); }
-.header-saved-count { display: grid; width: 20px; height: 20px; border-radius: 50%; background: var(--surface-warm); place-items: center; font-size: .75rem; }
+.header-account-actions { gap: 8px; display: flex; flex-shrink: 0; align-items: center; }
+.header-saved,
+.header-account-button,
+.header-sign-out {
+    gap: 8px;
+    color: #fff;
+    display: flex;
+    font-weight: 600;
+    font-size: .8125rem;
+    border-radius: 8px;
+    padding: 11px 14px;
+    align-items: center;
+    white-space: nowrap;
+    background: transparent;
+    border: 1px solid var(--gold);
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+
+    &:hover {
+        transform: translateY(-1px);
+        background: var(--surface-warm);
+    }
+
+    &:focus-visible {
+        outline-offset: 3px;
+        outline: 2px solid var(--gold);
+    }
+}
+.header-sign-in,
+.header-sign-out { border-color: var(--line); }
+.header-sign-up { color: var(--navy); background: var(--gold); }
+.header-sign-up:hover { color: #fff; }
+.header-sign-out { padding: 11px; color: var(--muted); }
 .header-menu-toggle { display: none; }
 
 @media (max-width: 1040px) {
@@ -46,11 +75,18 @@
     .header-content { height: 76px; gap: 12px; }
     .header-brand { width: 169px; height: 62px; margin-left: -5px; }
     .header-logo { width: 334px; height: 79px; top: -8px; left: -12px; }
-    .header-saved { margin-left: auto; padding: 10px; }
-    .header-saved-label { display: none; }
+    .header-account-actions { margin-left: auto; }
+    .header-saved, .header-account-button, .header-sign-out { padding: 10px; }
     .header-menu-toggle { display: grid; border: 0; background: transparent; color: #fff; padding: 10px; order: 3; }
     .header-navigation { gap: 24px; display: flex; left: -20px; right: -20px; top: 76px; max-height: calc(100dvh - 100px); overflow-y: auto; position: absolute; flex-direction: column; align-items: flex-start; background: var(--navy); padding: 22px; border-bottom: 1px solid var(--line); box-shadow: 0 12px 25px #253f6814; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px); transition: opacity 180ms ease, transform 220ms ease, visibility 180ms ease; }
     .header-navigation.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); }
     .nav-link { font-size: 1rem; }
     .nav-link .ruler-icon { display: block; }
+}
+
+@media (max-width: 560px) {
+    .header-content { gap: 8px; height: auto; min-height: 76px; flex-wrap: wrap; padding-top: 6px; padding-bottom: 12px; }
+    .header-menu-toggle { margin-left: auto; }
+    .header-navigation { top: 100%; }
+    .header-account-actions { order: 4; width: 100%; justify-content: flex-end; }
 }

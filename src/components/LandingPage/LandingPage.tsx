@@ -4,6 +4,7 @@ import { palette, styles } from './LandingPage.styles';
 import { categories } from '../../shared/catalog';
 import RulerMarquee from '../RulerMarquee/RulerMarquee';
 import { useDirectory } from '../../shared/DirectoryContext';
+import { useAccount } from '../../shared/AccountContext';
 import { useNavigation } from '../../shared/NavigationContext';
 import InformationPage from '../InformationPage/InformationPage';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -15,6 +16,7 @@ export default function LandingPage() {
     const scroll = useRef<ScrollView>(null);
     const { page, navigate } = useNavigation();
     const { width } = useWindowDimensions();
+    const { isSignedIn, openAccount, signOut } = useAccount();
     const pendingDirectoryScroll = useRef(false);
     const [directoryY, setDirectoryY] = useState(0);
     const {
@@ -101,30 +103,94 @@ export default function LandingPage() {
                         nativeID={`ruler-tools-header-logo`}
                         className={`ruler-tools-header-logo`}
                     />
-                    <Pressable
-                        accessibilityRole={`button`}
-                        accessibilityLabel={`Show ${savedCount} saved tools`}
-                        accessibilityState={{ selected: page === `home` && savedOnly }}
-                        style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
-                        onPress={() => {
-                            animateChange(() => setSavedOnly(!savedOnly));
-                            browseTools();
-                        }}
-                        {...elementProps(`header-saved-tools-button`)}
+                    <View
+                        style={styles.headerAccountActions}
+                        {...elementProps(`header-account-actions`)}
                     >
-                        <Text
-                            style={styles.headerBookmarkText}
-                            {...elementProps(`header-saved-tools-icon`)}
-                        >
-                            {savedOnly ? `★` : `☆`}
-                        </Text>
-                        <Text
-                            style={styles.headerBookmarkText}
-                            {...elementProps(`header-saved-tools-count`)}
-                        >
-                            {`My toolkit ${savedCount}`}
-                        </Text>
-                    </Pressable>
+                        {isSignedIn ? (
+                            <>
+                                <Pressable
+                                    accessibilityRole={`button`}
+                                    accessibilityLabel={`Show ${savedCount} saved tools`}
+                                    accessibilityState={{ selected: page === `home` && savedOnly }}
+                                    style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
+                                    onPress={() => {
+                                        animateChange(() => setSavedOnly(!savedOnly));
+                                        browseTools();
+                                    }}
+                                    {...elementProps(`header-saved-tools-button`)}
+                                >
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-saved-tools-icon`)}
+                                    >
+                                        {savedOnly ? `★` : `☆`}
+                                    </Text>
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-saved-tools-label`)}
+                                    >
+                                        {`Toolkits`}
+                                    </Text>
+                                </Pressable>
+                                <Pressable
+                                    accessibilityRole={`button`}
+                                    onPress={signOut}
+                                    accessibilityLabel={`Exit account preview`}
+                                    style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
+                                    {...elementProps(`header-sign-out-button`)}
+                                >
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-sign-out-icon`)}
+                                    >
+                                        {`↪`}
+                                    </Text>
+                                </Pressable>
+                            </>
+                        ) : (
+                            <>
+                                <Pressable
+                                    accessibilityRole={`button`}
+                                    onPress={() => openAccount(`sign-in`)}
+                                    style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
+                                    {...elementProps(`header-sign-in-button`)}
+                                >
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-sign-in-icon`)}
+                                    >
+                                        {`↪`}
+                                    </Text>
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-sign-in-label`)}
+                                    >
+                                        {`Sign In`}
+                                    </Text>
+                                </Pressable>
+                                <Pressable
+                                    accessibilityRole={`button`}
+                                    onPress={() => openAccount(`sign-up`)}
+                                    style={({ pressed }) => [styles.headerBookmark, pressed && styles.pressed]}
+                                    {...elementProps(`header-sign-up-button`)}
+                                >
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-sign-up-icon`)}
+                                    >
+                                        {`+`}
+                                    </Text>
+                                    <Text
+                                        style={styles.headerBookmarkText}
+                                        {...elementProps(`header-sign-up-label`)}
+                                    >
+                                        {`Sign Up`}
+                                    </Text>
+                                </Pressable>
+                            </>
+                        )}
+                    </View>
                 </View>
 
                 <View

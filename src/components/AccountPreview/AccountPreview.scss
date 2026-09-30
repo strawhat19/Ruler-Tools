@@ -1,0 +1,76 @@
+.account-preview-backdrop {
+    inset: 0;
+    z-index: 100;
+    display: grid;
+    padding: 24px;
+    overflow-y: auto;
+    position: fixed;
+    place-items: center;
+    backdrop-filter: blur(6px);
+    background: rgba(18, 31, 53, .6);
+    animation: account-preview-fade 180ms ease-out;
+}
+
+.account-preview-dialog {
+    width: 100%;
+    padding: 32px;
+    max-width: 420px;
+    position: relative;
+    color: var(--navy);
+    border-radius: 20px;
+    background: #ffffff;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 70px rgba(18, 31, 53, .2);
+    animation: account-preview-rise 240ms cubic-bezier(.2, .7, .3, 1);
+}
+
+.account-preview-close {
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    display: grid;
+    position: absolute;
+    border-radius: 10px;
+    color: var(--navy);
+    place-items: center;
+    background: transparent;
+    transition: background 180ms ease, transform 180ms ease;
+
+    &:hover { background: var(--surface-warm); transform: rotate(8deg); }
+}
+
+.account-preview-emblem { width: 52px; height: 52px; display: grid; margin-bottom: 20px; border-radius: 14px; color: var(--gold-dark); place-items: center; background: var(--surface-warm); }
+.account-preview-title { font-size: 1.8rem; margin-bottom: 12px; letter-spacing: -.6px; }
+.account-preview-description { color: var(--muted); font-size: .9375rem; line-height: 1.7; }
+.account-preview-notice { margin: 20px 0; padding: 14px 16px; border-radius: 10px; color: var(--navy); font-size: .8125rem; line-height: 1.7; background: var(--surface-warm); }
+
+.account-preview-toolkit-button {
+    gap: 9px;
+    width: 100%;
+    display: flex;
+    padding: 13px 18px;
+    border-radius: 10px;
+    font-weight: 650;
+    color: var(--navy);
+    align-items: center;
+    justify-content: center;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    transition: filter 180ms ease, transform 180ms ease;
+
+    &:hover { filter: brightness(1.05); transform: translateY(-1px); }
+    &:active { transform: translateY(0); }
+}
+
+.account-preview-close:focus-visible,
+.account-preview-toolkit-button:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+
+@keyframes account-preview-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes account-preview-rise { from { opacity: 0; transform: translateY(12px) scale(.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+    .account-preview-dialog, .account-preview-backdrop { animation: none; }
+    .account-preview-close, .account-preview-toolkit-button { transition: none; }
+}
