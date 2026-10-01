@@ -81,71 +81,71 @@ export default function Header() {
                         <Icon id={`nav-privacy-policy-icon`} name={`shield`} size={17} />
                         {`Privacy Policy`}
                     </a>
+                    <div id={`header-account-actions`} className={`header-account-actions`}>
+                        {isSignedIn ? (
+                            <>
+                                <button
+                                    type={`button`}
+                                    id={`header-saved`}
+                                    className={`header-saved`}
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        browseSaved();
+                                    }}
+                                >
+                                    <Icon id={`header-saved-icon`} name={`bookmark`} size={17} />
+                                    <span id={`header-saved-label`} className={`header-saved-label`}>
+                                        {`Toolkits`}
+                                    </span>
+                                </button>
+                                <button
+                                    type={`button`}
+                                    id={`header-sign-out`}
+                                    className={`header-sign-out`}
+                                    title={`Exit account preview`}
+                                    aria-label={`Exit account preview`}
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        signOut();
+                                    }}
+                                >
+                                    <Icon id={`header-sign-out-icon`} name={`log-out`} size={17} />
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    type={`button`}
+                                    id={`header-sign-in`}
+                                    className={`header-account-button header-sign-in`}
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        openAccount(`sign-in`);
+                                    }}
+                                >
+                                    <Icon id={`header-sign-in-icon`} name={`log-in`} size={17} />
+                                    <span id={`header-sign-in-label`} className={`header-account-label header-sign-in-label`}>
+                                        {`Sign In`}
+                                    </span>
+                                </button>
+                                <button
+                                    type={`button`}
+                                    id={`header-sign-up`}
+                                    className={`header-account-button header-sign-up`}
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        openAccount(`sign-up`);
+                                    }}
+                                >
+                                    <Icon id={`header-sign-up-icon`} name={`user-plus`} size={17} />
+                                    <span id={`header-sign-up-label`} className={`header-account-label header-sign-up-label`}>
+                                        {`Sign Up`}
+                                    </span>
+                                </button>
+                            </>
+                        )}
+                    </div>
                 </nav>
-                <div id={`header-account-actions`} className={`header-account-actions`}>
-                    {isSignedIn ? (
-                        <>
-                            <button
-                                type={`button`}
-                                id={`header-saved`}
-                                className={`header-saved`}
-                                onClick={() => {
-                                    setMenuOpen(false);
-                                    browseSaved();
-                                }}
-                            >
-                                <Icon id={`header-saved-icon`} name={`bookmark`} size={17} />
-                                <span id={`header-saved-label`} className={`header-saved-label`}>
-                                    {`Toolkits`}
-                                </span>
-                            </button>
-                            <button
-                                type={`button`}
-                                id={`header-sign-out`}
-                                className={`header-sign-out`}
-                                title={`Exit account preview`}
-                                aria-label={`Exit account preview`}
-                                onClick={() => {
-                                    setMenuOpen(false);
-                                    signOut();
-                                }}
-                            >
-                                <Icon id={`header-sign-out-icon`} name={`log-out`} size={17} />
-                            </button>
-                        </>
-                    ) : (
-                        <>
-                            <button
-                                type={`button`}
-                                id={`header-sign-in`}
-                                className={`header-account-button header-sign-in`}
-                                onClick={() => {
-                                    setMenuOpen(false);
-                                    openAccount(`sign-in`);
-                                }}
-                            >
-                                <Icon id={`header-sign-in-icon`} name={`log-in`} size={17} />
-                                <span id={`header-sign-in-label`} className={`header-account-label header-sign-in-label`}>
-                                    {`Sign In`}
-                                </span>
-                            </button>
-                            <button
-                                type={`button`}
-                                id={`header-sign-up`}
-                                className={`header-account-button header-sign-up`}
-                                onClick={() => {
-                                    setMenuOpen(false);
-                                    openAccount(`sign-up`);
-                                }}
-                            >
-                                <Icon id={`header-sign-up-icon`} name={`user-plus`} size={17} />
-                                <span id={`header-sign-up-label`} className={`header-account-label header-sign-up-label`}>
-                                    {`Sign Up`}
-                                </span>
-                            </button>
-                        </>
-                    )}
-                </div>
             </div>
             <RulerMarquee id={`header-ruler-marquee`} variant={`slim`} />
         </header>
