@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
+import type { ThemePalette } from '../../shared/theme';
 
-export const styles = StyleSheet.create({
+export const createStyles = (palette: ThemePalette) => StyleSheet.create({
     marquee: {
         height: 90,
         overflow: `hidden`,
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
         height: 28,
         borderTopWidth: 0,
         borderBottomWidth: 0,
-        backgroundColor: `#ffffff`,
+        backgroundColor: palette.background,
     },
     track: {
         height: `100%`,
@@ -52,11 +53,11 @@ export const styles = StyleSheet.create({
     },
     slimTick: {
         height: 6,
-        backgroundColor: `rgba(37,63,104,0.24)`,
+        backgroundColor: palette.border,
     },
     slimMidTick: {
         height: 9,
-        backgroundColor: `rgba(37,63,104,0.48)`,
+        backgroundColor: palette.muted,
     },
     slimMajorTick: {
         height: 13,
@@ -76,6 +77,6 @@ export const styles = StyleSheet.create({
         left: 4,
         fontSize: 8,
         lineHeight: 10,
-        color: `rgba(37,63,104,0.58)`,
+        color: palette.muted,
     },
 });

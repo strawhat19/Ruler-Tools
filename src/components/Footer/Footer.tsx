@@ -54,7 +54,7 @@ export default function Footer() {
             <div id={`footer-details`} className={`footer-details page-container`}>
                 <div id={`footer-meta`} className={`footer-meta`}>
                     <p id={`footer-copyright`} className={`footer-copyright`}>
-                        {`© ${year} Ruler Tools. All rights reserved.`}
+                        {`© ${year} Ruler Tools · Source Code: MIT`}
                     </p>
                     <a
                         id={`footer-piratechs-link`}

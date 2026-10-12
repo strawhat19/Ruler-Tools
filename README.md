@@ -41,3 +41,13 @@ Expo copies `public/`, including `public/.htaccess`, into the web export. On Apa
 On other static hosts, configure the same permanent alias redirects and a SPA rewrite for `/about`, `/terms`, and `/privacy-policy` to the deployed app's `index.html`. Apply redirects before that rewrite and keep existing asset paths available. See the [Expo web publishing guide](https://docs.expo.dev/guides/publishing-websites/) for hosting and SPA fallback setup.
 
 No tests, builds, or verification were run, following this project's instructions.
+
+## Theme
+
+Light mode is the default on web, iOS, and Android. The header's sun/moon toggle saves your selected theme on the current device; an existing saved choice takes precedence over the default.
+
+## License
+
+Original Ruler Tools source code and documentation are licensed under the [MIT License](LICENSE), copyright 2026 strawhat19. MIT permits use, modification, and distribution, including commercial use, without a license fee, subject to retaining the copyright and permission notices.
+
+Dependencies, fonts, vendored assets, and other third-party materials retain their own licenses and notices. This license does not grant rights to third-party trademarks or relicense third-party code or assets. Existing licenses under `ai/` are preserved.

@@ -1,11 +1,15 @@
-import { styles } from './InformationPage.styles';
-import { Alert, View, Text, Linking, Pressable } from 'react-native';
+import { useMemo } from 'react';
+import { useTheme } from '../../shared/ThemeContext';
+import { createStyles } from './InformationPage.styles';
 import { useNavigation } from '../../shared/NavigationContext';
 import { elementProps } from '../LandingPage/LandingPage.logic';
 import type { InformationPageId } from './InformationPage.logic';
+import { Alert, View, Text, Linking, Pressable } from 'react-native';
 import { reviewDate, piratechsUrl, informationLinks, informationContent } from './InformationPage.logic';
 
 export default function InformationPage({ page }: { page: InformationPageId }) {
+    const { palette } = useTheme();
+    const styles = useMemo(() => createStyles(palette), [palette]);
     const { navigate } = useNavigation();
     const content = informationContent[page];
     const pageLink = informationLinks.find((link) => link.page === page);

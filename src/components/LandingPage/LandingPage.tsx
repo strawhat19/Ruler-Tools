@@ -1,17 +1,21 @@
 import Logo from '../Logo/Logo';
-import { useRef, useState, useEffect } from 'react';
-import { palette, styles } from './LandingPage.styles';
 import { categories } from '../../shared/catalog';
+import { createStyles } from './LandingPage.styles';
+import { Svg, Path, Circle } from 'react-native-svg';
+import { useTheme } from '../../shared/ThemeContext';
 import RulerMarquee from '../RulerMarquee/RulerMarquee';
-import { useDirectory } from '../../shared/DirectoryContext';
 import { useAccount } from '../../shared/AccountContext';
+import { useRef, useMemo, useState, useEffect } from 'react';
+import { useDirectory } from '../../shared/DirectoryContext';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '../../shared/NavigationContext';
 import InformationPage from '../InformationPage/InformationPage';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { elementProps, platformFilters, toolColors, toolSymbols } from './LandingPage.logic';
-import { Alert, View, Text, Linking, Pressable, TextInput, ScrollView, LayoutAnimation, useWindowDimensions } from 'react-native';
+import { Alert, View, Text, Linking, Pressable, StatusBar, TextInput, ScrollView, LayoutAnimation, useWindowDimensions } from 'react-native';
 
 export default function LandingPage() {
+    const { isDark, palette, toggleTheme } = useTheme();
+    const styles = useMemo(() => createStyles(palette), [palette]);
     const year = new Date().getFullYear();
     const scroll = useRef<ScrollView>(null);
     const { page, navigate } = useNavigation();
@@ -73,6 +77,7 @@ export default function LandingPage() {
             style={styles.safeArea}
             {...elementProps(`ruler-tools-safe-area`)}
         >
+            <StatusBar barStyle={isDark ? `light-content` : `dark-content`} />
             <View
                 style={styles.headerContainer}
                 {...elementProps(`ruler-tools-header-container`)}
@@ -107,6 +112,33 @@ export default function LandingPage() {
                         style={styles.headerAccountActions}
                         {...elementProps(`header-account-actions`)}
                     >
+                        <Pressable
+                            onPress={toggleTheme}
+                            accessibilityRole={`button`}
+                            accessibilityLabel={isDark ? `Switch To Light Mode` : `Switch To Dark Mode`}
+                            style={({ pressed }) => [styles.themeToggle, pressed && styles.pressed]}
+                            {...elementProps(`header-theme-toggle`)}
+                        >
+                            <Svg
+                                width={19}
+                                height={19}
+                                fill={`none`}
+                                accessible={false}
+                                viewBox={`0 0 24 24`}
+                                stroke={palette.gold}
+                                strokeWidth={1.8}
+                                strokeLinecap={`round`}
+                                strokeLinejoin={`round`}
+                                {...elementProps(`header-theme-icon`)}
+                            >
+                                {isDark ? (
+                                    <>
+                                        <Circle cx={12} cy={12} r={4} />
+                                        <Path d={`M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42`} />
+                                    </>
+                                ) : <Path d={`M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z`} />}
+                            </Svg>
+                        </Pressable>
                         {isSignedIn ? (
                             <>
                                 <Pressable
@@ -157,7 +189,7 @@ export default function LandingPage() {
                                     {...elementProps(`header-sign-in-button`)}
                                 >
                                     <Text
-                                        style={styles.headerBookmarkText}
+                                        style={[styles.headerBookmarkText, styles.headerSignInIcon]}
                                         {...elementProps(`header-sign-in-icon`)}
                                     >
                                         {`↪`}
@@ -477,13 +509,13 @@ export default function LandingPage() {
                                     {...elementProps(`platform-filter-button`, item.id)}
                                 >
                                     <Text
-                                        style={styles.platformText}
+                                        style={[styles.platformText, platform === item.id && styles.platformTextActive]}
                                         {...elementProps(`platform-filter-icon`, item.id)}
                                     >
                                         {item.icon}
                                     </Text>
                                     <Text
-                                        style={styles.platformText}
+                                        style={[styles.platformText, platform === item.id && styles.platformTextActive]}
                                         {...elementProps(`platform-filter-label`, item.id)}
                                     >
                                         {item.label}
@@ -498,13 +530,13 @@ export default function LandingPage() {
                                 {...elementProps(`platform-saved-filter-button`)}
                             >
                                 <Text
-                                    style={styles.platformText}
+                                    style={[styles.platformText, savedOnly && styles.platformTextActive]}
                                     {...elementProps(`platform-saved-filter-icon`)}
                                 >
                                     {`☆`}
                                 </Text>
                                 <Text
-                                    style={styles.platformText}
+                                    style={[styles.platformText, savedOnly && styles.platformTextActive]}
                                     {...elementProps(`platform-saved-filter-label`)}
                                 >
                                     {`Saved`}
@@ -566,11 +598,11 @@ export default function LandingPage() {
                                                 {...elementProps(`tool-card-top`, tool.id)}
                                             >
                                                 <View
-                                                    style={[styles.toolIcon, { backgroundColor: colors.background }]}
+                                                    style={[styles.toolIcon, { backgroundColor: isDark ? palette.surfaceWarm : colors.background }]}
                                                     {...elementProps(`tool-card-icon-container`, tool.id)}
                                                 >
                                                     <Text
-                                                        style={[styles.toolIconText, { color: colors.foreground }]}
+                                                        style={[styles.toolIconText, { color: isDark ? palette.gold : colors.foreground }]}
                                                         {...elementProps(`tool-card-icon`, tool.id)}
                                                     >
                                                         {toolSymbols[tool.icon]}
@@ -739,7 +771,7 @@ export default function LandingPage() {
                             style={styles.footerText}
                             {...elementProps(`ruler-tools-footer-copyright`)}
                         >
-                            {`© ${year} Ruler Tools. All rights reserved.`}
+                            {`© ${year} Ruler Tools · Source Code: MIT`}
                         </Text>
                         <Pressable
                             accessibilityRole={`link`}

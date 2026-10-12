@@ -4,6 +4,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Directory from '../Directory/Directory';
 import RulerMarquee from '../RulerMarquee/RulerMarquee';
+import PageScrollbar from '../PageScrollbar/PageScrollbar';
 import { useNavigation } from '../../shared/NavigationContext';
 import InformationPage from '../InformationPage/InformationPage';
 
@@ -40,6 +41,7 @@ export default function LandingPage() {
             </main>
             <RulerMarquee id={`featured-ruler-marquee`} />
             <Footer />
+            <PageScrollbar />
         </div>
     );
 }

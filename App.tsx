@@ -1,3 +1,4 @@
+import { ThemeProvider } from './src/shared/ThemeContext';
 import { AccountProvider } from './src/shared/AccountContext';
 import { DirectoryProvider } from './src/shared/DirectoryContext';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -8,14 +9,16 @@ import AccountPreview from './src/components/AccountPreview/AccountPreview';
 export default function App() {
     return (
         <SafeAreaProvider>
-            <DirectoryProvider>
-                <NavigationProvider>
-                    <AccountProvider>
-                        <LandingPage />
-                        <AccountPreview />
-                    </AccountProvider>
-                </NavigationProvider>
-            </DirectoryProvider>
+            <ThemeProvider>
+                <DirectoryProvider>
+                    <NavigationProvider>
+                        <AccountProvider>
+                            <LandingPage />
+                            <AccountPreview />
+                        </AccountProvider>
+                    </NavigationProvider>
+                </DirectoryProvider>
+            </ThemeProvider>
         </SafeAreaProvider>
     );
 }

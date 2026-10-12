@@ -8,7 +8,7 @@ export default function Header() {
     const {
         page, pageHref, linkTo, signOut,
         menuOpen, isSignedIn, openAccount,
-        setMenuOpen, browseSaved,
+        setMenuOpen, browseSaved, isDark, toggleTheme,
     } = useHeader();
 
     return (
@@ -82,6 +82,17 @@ export default function Header() {
                         {`Privacy Policy`}
                     </a>
                     <div id={`header-account-actions`} className={`header-account-actions`}>
+                        <button
+                            type={`button`}
+                            onClick={toggleTheme}
+                            aria-pressed={isDark}
+                            id={`header-theme-toggle`}
+                            className={`header-theme-toggle`}
+                            title={isDark ? `Switch To Light Mode` : `Switch To Dark Mode`}
+                            aria-label={isDark ? `Switch To Light Mode` : `Switch To Dark Mode`}
+                        >
+                            <Icon id={`header-theme-icon`} name={isDark ? `sun` : `moon`} size={18} />
+                        </button>
                         {isSignedIn ? (
                             <>
                                 <button

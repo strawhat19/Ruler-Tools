@@ -83,6 +83,7 @@ export const informationContent: Record<InformationPageId, InformationContent> =
                 id: `content-ownership`,
                 title: `Content and ownership`,
                 paragraphs: [
+                    `Original Ruler Tools source code and documentation are available under the MIT License, copyright 2026 strawhat19. You may use, modify, and distribute that code, including commercially, subject to the license's copyright and permission notice requirements. Dependencies, fonts, and other third-party materials retain their own licenses.`,
                     `Third-party names, trademarks, and tools remain the property of their respective owners. Your use of the directory does not grant ownership of its branding or of a listed provider's intellectual property. Respect applicable rights when using or sharing content.`,
                 ],
             },

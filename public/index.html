@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#253f68" />
+    <script id="ruler-tools-theme-bootstrap">
+      (() => {
+        let preference;
+        try { preference = localStorage.getItem(`ruler-tools:theme`); } catch {}
+        const theme = preference === `dark` ? `dark` : `light`;
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <meta name="description" content="One Tool to Rule Them All. Discover useful calculators, measuring tools, levels, converters, and more across websites, extensions, and apps." />
     <title>Ruler Tools — One Tool to Rule Them All</title>
     <link rel="icon" type="image/png" sizes="16x16" href="./brand/ruler-tools-favicon-16.png?v=4" />

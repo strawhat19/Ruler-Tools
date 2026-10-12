@@ -1,11 +1,12 @@
 import type { ToolIcon } from '../../shared/types';
 import {
-    X, Type, Code2, Gauge, Ruler, Search, Check, Globe, Heart, Menu, Info, Clock,
+    X, Sun, Moon, Type, Code2, Gauge, Ruler, Search, Check, Globe, Heart, Menu, Info, Clock,
     SlidersHorizontal, Calculator, ArrowLeftRight, ExternalLink, ArrowRight, LogIn, LogOut, UserPlus,
     Bookmark, Compass, ScanLine, Palette, Pipette, Puzzle, Smartphone, ChevronDown, FileText, ShieldCheck,
 } from 'lucide-react';
 
 const icons = {
+    sun: Sun, moon: Moon,
     x: X, type: Type, code: Code2, gauge: Gauge, ruler: Ruler,
     info: Info, clock: Clock, terms: FileText, shield: ShieldCheck,
     'log-in': LogIn, 'log-out': LogOut, 'user-plus': UserPlus,

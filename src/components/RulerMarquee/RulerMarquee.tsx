@@ -1,11 +1,14 @@
-import { useEffect, useRef, useState } from 'react';
-import { styles } from './RulerMarquee.styles';
-import { elementProps } from '../LandingPage/LandingPage.logic';
+import { createStyles } from './RulerMarquee.styles';
+import { useTheme } from '../../shared/ThemeContext';
+import { useRef, useMemo, useState, useEffect } from 'react';
 import type { RulerMarqueeProps } from './RulerMarquee.logic';
+import { elementProps } from '../LandingPage/LandingPage.logic';
 import { Animated, View, Text, Easing, AccessibilityInfo } from 'react-native';
 import { rulerTicks, rulerUnits, rulerDuration, rulerUnitWidth } from './RulerMarquee.logic';
 
 export default function RulerMarquee({ id, variant = `featured` }: RulerMarqueeProps) {
+    const { palette } = useTheme();
+    const styles = useMemo(() => createStyles(palette), [palette]);
     const slim = variant === `slim`;
     const groupWidth = rulerUnits.length * rulerUnitWidth;
     const translation = useRef(new Animated.Value(slim ? -groupWidth : 0)).current;

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { palette } from '../LandingPage/LandingPage.styles';
+import type { ThemePalette } from '../../shared/theme';
 
-export const styles = StyleSheet.create({
+export const createStyles = (palette: ThemePalette) => StyleSheet.create({
     page: {
         gap: 30,
         width: `100%`,
@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     },
     icon: {
         fontSize: 30,
-        color: palette.navy,
+        color: palette.ink,
     },
     eyebrow: {
         fontSize: 10,
@@ -45,7 +45,7 @@ export const styles = StyleSheet.create({
         lineHeight: 45,
         fontWeight: `800`,
         letterSpacing: -1.5,
-        color: palette.navy,
+        color: palette.ink,
     },
     description: {
         fontSize: 16,
@@ -67,7 +67,7 @@ export const styles = StyleSheet.create({
         lineHeight: 27,
         fontWeight: `700`,
         letterSpacing: -0.4,
-        color: palette.navy,
+        color: palette.ink,
     },
     paragraph: {
         fontSize: 14,
@@ -85,7 +85,7 @@ export const styles = StyleSheet.create({
     relatedTitle: {
         fontSize: 14,
         fontWeight: `700`,
-        color: palette.navy,
+        color: palette.ink,
     },
     relatedLink: {
         gap: 9,
@@ -95,7 +95,7 @@ export const styles = StyleSheet.create({
     relatedText: {
         fontSize: 14,
         fontWeight: `600`,
-        color: palette.navy,
+        color: palette.ink,
     },
     piratechsLink: {
         paddingTop: 20,

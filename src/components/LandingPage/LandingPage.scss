@@ -1,7 +1,10 @@
 :root {
+    color-scheme: light;
     --gold: #f5bd4f;
     --navy: #253f68;
     --ink: var(--navy);
+    --panel: #fff;
+    --background: #fff;
     --muted: rgba(37, 63, 104, .64);
     --line: rgba(37, 63, 104, .12);
     --surface: rgba(37, 63, 104, .05);
@@ -11,6 +14,19 @@
     --gold-dark: #b67714;
     --font-body: 'DM Sans', sans-serif;
     --font-heading: 'Manrope', sans-serif;
+}
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+    --ink: #edf3ff;
+    --panel: #182941;
+    --background: #101b2d;
+    --gold-dark: var(--gold);
+    --muted: rgba(237, 243, 255, .68);
+    --line: rgba(237, 243, 255, .14);
+    --surface: rgba(237, 243, 255, .07);
+    --surface-soft: rgba(237, 243, 255, .035);
+    --surface-warm: rgba(245, 189, 79, .1);
 }
 
 * { box-sizing: border-box; }
@@ -23,7 +39,8 @@ html {
 body {
     margin: 0;
     color: var(--ink);
-    background: #fff;
+    background: var(--background);
+    transition: color 180ms ease, background-color 180ms ease;
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
 }
@@ -50,7 +67,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
     z-index: 100;
     padding: 14px;
     position: fixed;
-    background: white;
+    background: var(--panel);
     border-radius: 8px;
     transform: translateY(-160%);
     &:focus { transform: translateY(0); }

@@ -1,22 +1,7 @@
 import { StyleSheet } from 'react-native';
+import type { ThemePalette } from '../../shared/theme';
 
-export const palette = {
-    ink: `#253f68`,
-    navy: `#253f68`,
-    gold: `#f5bd4f`,
-    goldDark: `#b67714`,
-    background: `#ffffff`,
-    onNavyTick: `rgba(255,255,255,0.4)`,
-    onNavyMuted: `rgba(255,255,255,0.7)`,
-    onNavyBorder: `rgba(255,255,255,0.28)`,
-    muted: `rgba(37,63,104,0.64)`,
-    border: `rgba(37,63,104,0.12)`,
-    surface: `rgba(37,63,104,0.05)`,
-    surfaceSoft: `rgba(37,63,104,0.025)`,
-    surfaceWarm: `rgba(245,189,79,0.16)`,
-};
-
-export const styles = StyleSheet.create({
+export const createStyles = (palette: ThemePalette) => StyleSheet.create({
     safeArea: {
         flex: 1,
         backgroundColor: palette.background,
@@ -62,6 +47,17 @@ export const styles = StyleSheet.create({
         alignItems: `center`,
         backgroundColor: `rgba(255,255,255,0.07)`,
     },
+    themeToggle: {
+        width: 39,
+        height: 39,
+        borderRadius: 12,
+        alignItems: `center`,
+        justifyContent: `center`,
+        backgroundColor: `rgba(255,255,255,0.07)`,
+    },
+    headerSignInIcon: {
+        color: palette.gold,
+    },
     headerAccountActions: {
         gap: 8,
         flexWrap: `wrap`,
@@ -71,7 +67,7 @@ export const styles = StyleSheet.create({
     headerBookmarkText: {
         fontSize: 13,
         fontWeight: `600`,
-        color: palette.background,
+        color: palette.onNavyText,
     },
     navigation: {
         gap: 6,
@@ -100,7 +96,7 @@ export const styles = StyleSheet.create({
     navigationLabel: {
         fontSize: 12,
         fontWeight: `600`,
-        color: palette.background,
+        color: palette.onNavyText,
     },
     hero: {
         gap: 18,
@@ -126,14 +122,14 @@ export const styles = StyleSheet.create({
         fontSize: 11,
         fontWeight: `700`,
         letterSpacing: 1.8,
-        color: palette.navy,
+        color: palette.ink,
     },
     heroTitle: {
         fontSize: 47,
         lineHeight: 52,
         fontWeight: `800`,
         letterSpacing: -2.1,
-        color: palette.navy,
+        color: palette.ink,
     },
     heroTitleAccent: {
         color: palette.goldDark,
@@ -154,11 +150,11 @@ export const styles = StyleSheet.create({
         flexDirection: `row`,
         alignItems: `center`,
         borderColor: palette.border,
-        backgroundColor: palette.background,
+        backgroundColor: palette.panel,
     },
     searchIcon: {
         fontSize: 25,
-        color: palette.navy,
+        color: palette.ink,
     },
     searchInput: {
         flex: 1,
@@ -201,7 +197,7 @@ export const styles = StyleSheet.create({
         lineHeight: 28,
         fontWeight: `600`,
         letterSpacing: -0.4,
-        color: palette.background,
+        color: palette.onNavyText,
     },
     ruler: {
         height: 36,
@@ -256,15 +252,15 @@ export const styles = StyleSheet.create({
     },
     categoryIcon: {
         fontSize: 18,
-        color: palette.navy,
+        color: palette.ink,
     },
     categoryText: {
         fontSize: 12,
         fontWeight: `600`,
-        color: palette.navy,
+        color: palette.ink,
     },
     activeText: {
-        color: palette.background,
+        color: palette.onNavyText,
     },
     directoryHeading: {
         gap: 8,
@@ -275,7 +271,7 @@ export const styles = StyleSheet.create({
         lineHeight: 36,
         fontWeight: `700`,
         letterSpacing: -0.9,
-        color: palette.navy,
+        color: palette.ink,
     },
     directoryDescription: {
         fontSize: 14,
@@ -298,10 +294,13 @@ export const styles = StyleSheet.create({
     platformChipActive: {
         backgroundColor: palette.gold,
     },
+    platformTextActive: {
+        color: palette.navy,
+    },
     platformText: {
         fontSize: 12,
         fontWeight: `600`,
-        color: palette.navy,
+        color: palette.ink,
     },
     resultsBar: {
         gap: 12,
@@ -333,7 +332,7 @@ export const styles = StyleSheet.create({
     },
     sortTextActive: {
         fontWeight: `700`,
-        color: palette.navy,
+        color: palette.ink,
     },
     toolGrid: {
         gap: 16,
@@ -348,7 +347,7 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 18,
         borderColor: palette.border,
-        backgroundColor: palette.background,
+        backgroundColor: palette.panel,
     },
     toolCardTop: {
         gap: 12,
@@ -382,13 +381,13 @@ export const styles = StyleSheet.create({
     },
     saveButtonText: {
         fontSize: 24,
-        color: palette.navy,
+        color: palette.ink,
     },
     toolName: {
         fontSize: 19,
         fontWeight: `700`,
         letterSpacing: -0.35,
-        color: palette.navy,
+        color: palette.ink,
     },
     toolDescription: {
         fontSize: 14,
@@ -419,7 +418,7 @@ export const styles = StyleSheet.create({
     openToolText: {
         fontSize: 12,
         fontWeight: `700`,
-        color: palette.navy,
+        color: palette.ink,
     },
     emptyState: {
         gap: 13,
@@ -438,7 +437,7 @@ export const styles = StyleSheet.create({
     emptyTitle: {
         fontSize: 20,
         fontWeight: `700`,
-        color: palette.navy,
+        color: palette.ink,
     },
     emptyDescription: {
         fontSize: 14,
@@ -472,7 +471,7 @@ export const styles = StyleSheet.create({
         lineHeight: 29,
         fontWeight: `700`,
         letterSpacing: -0.5,
-        color: palette.navy,
+        color: palette.ink,
     },
     closingDescription: {
         fontSize: 14,

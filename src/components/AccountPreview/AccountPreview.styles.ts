@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
-import { palette } from '../LandingPage/LandingPage.styles';
+import type { ThemePalette } from '../../shared/theme';
 
-export const styles = StyleSheet.create({
+export const createStyles = (palette: ThemePalette) => StyleSheet.create({
     backdrop: {
         flex: 1,
         padding: 24,
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 20,
         borderColor: palette.border,
-        backgroundColor: palette.background,
+        backgroundColor: palette.panel,
     },
     close: {
         top: 12,
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
     },
     closeIcon: {
         fontSize: 27,
-        color: palette.navy,
+        color: palette.ink,
     },
     emblem: {
         width: 52,
@@ -52,7 +52,7 @@ export const styles = StyleSheet.create({
         fontSize: 28,
         fontWeight: `700`,
         letterSpacing: -0.6,
-        color: palette.navy,
+        color: palette.ink,
     },
     description: {
         fontSize: 15,
@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
         fontSize: 13,
         lineHeight: 22,
         borderRadius: 10,
-        color: palette.navy,
+        color: palette.ink,
         backgroundColor: palette.surfaceWarm,
     },
     toolkitButton: {

@@ -1,9 +1,13 @@
-import { styles } from './AccountPreview.styles';
+import { useMemo } from 'react';
+import { useTheme } from '../../shared/ThemeContext';
+import { createStyles } from './AccountPreview.styles';
 import { useAccountPreview } from './AccountPreview.logic';
 import { Modal, View, Text, Pressable } from 'react-native';
 import { elementProps } from '../LandingPage/LandingPage.logic';
 
 export default function AccountPreview() {
+    const { palette } = useTheme();
+    const styles = useMemo(() => createStyles(palette), [palette]);
     const { notice, heading, description, dialogMode, closeAccount, previewSignIn } = useAccountPreview();
 
     return (
