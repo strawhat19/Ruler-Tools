@@ -10,9 +10,9 @@ Reference inspection: Domains-Database `AccountSidebar/index.web.tsx` (blob `5f9
 ## Pages
 
 - `/signin`, `/signup`, `/reset-password`: disabled credentials and provider controls, reciprocal links. No input accepted, credentials stored or login success simulated.
-- `/profile`, `/connections`: authentication gate plus explicit read-only layout preview. Profile name/email/bio/avatar, private visibility and unavailable save/export/delete actions.
+- `/profile`, `/connections`: authentication gate plus explicit read-only layout preview. Cloud profile name/email/bio/avatar, private visibility and unavailable cloud save/export/delete actions. A separate explicitly device-only display-name/bio draft is editable and saved locally without authentication.
 - `/saved`: actual existing starred tool IDs restored from device storage, removable; storage errors are visible and unreadable data is not overwritten.
-- `/toolkits`: device stars plus named in-memory draft collections, selection/removal, limit 20 drafts and 60-character names. These survive workspace route switches but not unmount/reload. Share is disabled; no share URL exists.
+- `/toolkits`: device stars plus named device-persisted draft collections, selection/removal, limit 20 drafts and 60-character names. These use validated versioned AsyncStorage (localStorage on web) with serialized writes, visible save/read failures and an explicit confirmed clear action. Share is disabled; no share URL exists.
 - `/dashboard`, `/analytics`: explicit preview gate, unavailable metrics (not zero), disabled report controls, source and freshness labels. No Vercel SDK or API calls.
 - `/users`, `/catalog`, `/features`, `/feedback`: admin layout previews, table structures and unavailable actions. Web catalog shows only bundled public tool records. Native management view is a compact disconnected summary, not full table parity.
 - `/contact`, `/help`: useful public support/discovery information. Existing About, Terms and Privacy retained and linked in footer/navigation. Contact links to Piratechs; no message-delivery claim.
@@ -36,4 +36,4 @@ Not ready for app-store submission or AdSense approval merely from these pages. 
 
 ## Validation and delivery
 
-Source and diff review only. Tests, type checks, builds, browser UI and native runtime checks were deliberately NOT run per AGENTS.md rule 1. No dependencies installed. Review branch only; main is untouched and no manual deployment requested. A Git push may trigger repository-connected preview CI, which is not a production release.
+Source and diff review only. Tests, type checks, builds, browser UI and native runtime checks were deliberately NOT run per AGENTS.md rule 1. No dependencies installed. Later explicit user request expanded drafts to local storage; no backend connection added. Review branch only; main is untouched and no manual deployment requested. A Git push may trigger repository-connected preview CI, which is not a production release.

@@ -38,7 +38,7 @@ export const informationContent: Record<InformationPageId, InformationContent> =
         description: `Find the right tool without losing track of your favorites.`,
         sections: [
             { id: `find`, title: `Find a tool`, paragraphs: [`Search by name or task, then filter by category or platform. Listings open the provider’s own website or app store. Always confirm compatibility, pricing and permissions there.`] },
-            { id: `save`, title: `Save on this device`, paragraphs: [`Star a listing to save it on this device. Saved Tools shows these selections. These are not synced to an account. Toolkit drafts organize selections for this session only.`] },
+            { id: `save`, title: `Save on this device`, paragraphs: [`Star a listing to save it on this device. Saved Tools shows these selections. These are not synced to an account. Named toolkit drafts and a display-name/bio draft can also be saved on this device, without creating an account.`] },
             { id: `account`, title: `Accounts are not connected yet`, paragraphs: [`Google sign-in, email accounts, public sharing and owner analytics are planned. Disabled controls and design previews do not create accounts, publish data or collect analytics.`] },
         ],
     },
@@ -144,6 +144,7 @@ export const informationContent: Record<InformationPageId, InformationContent> =
                 title: `Saved tools and device storage`,
                 paragraphs: [
                     `When you save a tool, the directory stores that selection on your device so it can restore your toolkit when you return. Saved selections are not synchronized to an account or shared between devices by the directory.`,
+                    `Toolkit drafts and an optional display name/bio draft are stored on the same device. They are not public profiles or cloud accounts. Use Clear Local Profile & Toolkits to remove these drafts; starred tool selections can be removed individually.`,
                     `You can remove individual selections by turning off their stars. Clearing this site's stored data in your browser, or clearing the native app's data using your device settings, removes the saved selections. If storage is unavailable, saving may only last for the current session.`,
                 ],
             },
