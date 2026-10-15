@@ -1,3 +1,6 @@
+import WorkspacePage from '../WorkspacePage/WorkspacePage';
+import { workspacePages } from '../../shared/routes';
+import type { InformationPageId } from '../InformationPage/InformationPage.logic';
 import Logo from '../Logo/Logo';
 import { categories } from '../../shared/catalog';
 import { createStyles } from './LandingPage.styles';
@@ -231,9 +234,12 @@ export default function LandingPage() {
                 >
                     {([
                         { page: `home`, label: `Explore`, icon: `⊞` },
+                        { page: `saved`, label: `Toolkit`, icon: `☆` },
                         { page: `about`, label: `About`, icon: `ⓘ` },
                         { page: `terms`, label: `Terms`, icon: `§` },
                         { page: `privacy`, label: `Privacy Policy`, icon: `▣` },
+                        { page: `contact`, label: `Contact`, icon: `✉` },
+                        { page: `help`, label: `Help`, icon: `?` },
                     ] as const).map((item) => (
                         <Pressable
                             key={item.page}
@@ -733,7 +739,7 @@ export default function LandingPage() {
                     />
                         </View>
                     ) : (
-                        <InformationPage page={page} />
+                        workspacePages.includes(page) ? <WorkspacePage /> : <InformationPage page={page as InformationPageId} />
                     )}
                     <View
                         style={styles.footer}

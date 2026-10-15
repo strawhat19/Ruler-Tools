@@ -1,4 +1,5 @@
 import './Footer.scss';
+import { informationLinks } from '../InformationPage/InformationPage.logic';
 import Icon from '../Icon/Icon';
 import Logo from '../Logo/Logo';
 import { useFooter } from './Footer.logic';
@@ -51,6 +52,9 @@ export default function Footer() {
                     {`Your toolkit stays on your device.`}
                 </span>
             </div>
+            <nav id={`footer-page-links`} className={`footer-details page-container`} aria-label={`Information pages`}>
+                {informationLinks.map(link => <a key={link.page} id={`footer-link-${link.page}`} href={pageHref(link.page)} onClick={linkTo(link.page)} className={`footer-piratechs-link`}><Icon id={`footer-link-icon-${link.page}`} name={link.icon} size={16} />{link.label}</a>)}
+            </nav>
             <div id={`footer-details`} className={`footer-details page-container`}>
                 <div id={`footer-meta`} className={`footer-meta`}>
                     <p id={`footer-copyright`} className={`footer-copyright`}>

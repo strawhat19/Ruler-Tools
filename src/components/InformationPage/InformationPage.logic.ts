@@ -1,7 +1,7 @@
 import { pagePaths } from '../../shared/routes';
 import type { PageId } from '../../shared/NavigationContext';
 
-export type InformationPageId = Exclude<PageId, `home`>;
+export type InformationPageId = Extract<PageId, `about` | `terms` | `privacy` | `contact` | `help` | `notFound`>;
 
 interface InformationSection {
     id: string;
@@ -17,15 +17,36 @@ interface InformationContent {
     sections: InformationSection[];
 }
 
-export const reviewDate = `September 29, 2026`;
+export const reviewDate = `October 15, 2026`;
 export const piratechsUrl = `https://piratechs.com/`;
 export const informationLinks = [
+    { page: `contact`, label: `Contact`, href: pagePaths.contact, icon: `info`, symbol: `✉` },
+    { page: `help`, label: `Help`, href: pagePaths.help, icon: `info`, symbol: `?` },
     { page: `about`, label: `About`, href: pagePaths.about, icon: `info`, symbol: `ⓘ` },
     { page: `terms`, label: `Terms`, href: pagePaths.terms, icon: `terms`, symbol: `≡` },
     { page: `privacy`, label: `Privacy Policy`, href: pagePaths.privacy, icon: `shield`, symbol: `◇` },
 ] as const;
 
 export const informationContent: Record<InformationPageId, InformationContent> = {
+    contact: {
+        icon: `info`, title: `Contact & Corrections`, eyebrow: `MAKE THE DIRECTORY BETTER`,
+        description: `Found a broken link or have a tool suggestion?`,
+        sections: [{ id: `contact`, title: `Contact Piratechs`, paragraphs: [`Use the Piratechs link below for current contact options. Include the tool name, official URL and what needs correcting. Do not send passwords or private account details.`, `In-app submissions are not connected yet. This page does not send or save messages.`] }],
+    },
+    help: {
+        icon: `info`, title: `Your Toolkit Guide`, eyebrow: `A BETTER START`,
+        description: `Find the right tool without losing track of your favorites.`,
+        sections: [
+            { id: `find`, title: `Find a tool`, paragraphs: [`Search by name or task, then filter by category or platform. Listings open the provider’s own website or app store. Always confirm compatibility, pricing and permissions there.`] },
+            { id: `save`, title: `Save on this device`, paragraphs: [`Star a listing to save it on this device. Saved Tools shows these selections. These are not synced to an account. Toolkit drafts organize selections for this session only.`] },
+            { id: `account`, title: `Accounts are not connected yet`, paragraphs: [`Google sign-in, email accounts, public sharing and owner analytics are planned. Disabled controls and design previews do not create accounts, publish data or collect analytics.`] },
+        ],
+    },
+    notFound: {
+        icon: `info`, title: `Page Not Found`, eyebrow: `LET’S FIND YOUR WAY`,
+        description: `This address does not match a Ruler Tools page. Use Explore to return to the directory.`,
+        sections: [],
+    },
     about: {
         icon: `info`,
         title: `About Ruler Tools`,

@@ -1,3 +1,6 @@
+import WorkspacePage from '../WorkspacePage/WorkspacePage';
+import { workspacePages } from '../../shared/routes';
+import type { InformationPageId } from '../InformationPage/InformationPage.logic';
 import './LandingPage.scss';
 import Hero from '../Hero/Hero';
 import Header from '../Header/Header';
@@ -36,7 +39,7 @@ export default function LandingPage() {
                         <Directory />
                     </>
                 ) : (
-                    <InformationPage page={page} />
+                    workspacePages.includes(page) ? <WorkspacePage /> : <InformationPage page={page as InformationPageId} />
                 )}
             </main>
             <RulerMarquee id={`featured-ruler-marquee`} />

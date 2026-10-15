@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+Disallow: /profile
+Disallow: /connections
+Disallow: /saved
+Disallow: /toolkits
+Disallow: /dashboard
+Disallow: /analytics
+Disallow: /users
+Disallow: /catalog
+Disallow: /features
+Disallow: /feedback
+Disallow: /signin
+Disallow: /signup
+Disallow: /reset-password
+Sitemap: https://ruler-tools.vercel.app/sitemap.xml

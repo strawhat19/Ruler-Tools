@@ -1,0 +1,4 @@
+{
+  "rewrites": [{ "source": "/((?!brand/|_expo/|assets/|favicon|manifest|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }],
+  "headers": [{ "source": "/(profile|connections|saved|toolkits|dashboard|analytics|users|catalog|features|feedback|signin|signup|reset-password)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }]
+}

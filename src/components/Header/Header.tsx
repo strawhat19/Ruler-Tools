@@ -81,6 +81,7 @@ export default function Header() {
                         <Icon id={`nav-privacy-policy-icon`} name={`shield`} size={17} />
                         {`Privacy Policy`}
                     </a>
+                    <a href={pageHref(`saved`)} onClick={linkTo(`saved`)} id={`nav-saved`} className={`nav-link`}><Icon id={`nav-saved-icon`} name={`bookmark`} size={17} />{`My Toolkit`}</a>
                     <div id={`header-account-actions`} className={`header-account-actions`}>
                         <button
                             type={`button`}

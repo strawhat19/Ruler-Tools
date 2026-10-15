@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import type { PageId } from './routes';
 import type { ReactNode, MouseEvent } from 'react';
-import { pagePaths, resolvePagePath } from './routes';
+import { pagePaths, resolvePagePath, routeRegistry } from './routes';
 import { createContext, useCallback, useContext, useEffect, useState } from 'react';
 
 export type { PageId } from './routes';
@@ -83,15 +83,20 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         if (Platform.OS !== `web` || typeof window === `undefined`) return;
 
-        const titles: Record<PageId, string> = {
-            home: `Ruler Tools — One Tool to Rule Them All`,
-            about: `About | Ruler Tools`,
-            terms: `Terms | Ruler Tools`,
-            privacy: `Privacy Policy | Ruler Tools`,
-        };
         const targetId = anchor || (page === `home` ? `hero` : `ruler-tools-main`);
 
-        document.title = titles[page];
+        document.title = page === `home` ? `Ruler Tools — One Tool to Rule Them All` : `${routeRegistry[page].label} | Ruler Tools`;
+        const setMeta = (name: string, content: string) => {
+            let element = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+            if (!element) { element = document.createElement(`meta`); element.name = name; document.head.appendChild(element); }
+            element.content = content;
+        };
+        setMeta(`robots`, routeRegistry[page].group === `public` && page !== `notFound` ? `index,follow` : `noindex,nofollow`);
+        setMeta(`description`, page === `home` ? `Find calculators, measuring tools, converters and creative utilities in the Ruler Tools directory.` : `${routeRegistry[page].label} for Ruler Tools. Discover useful tools and learn how device-only saved collections work.`);
+
+        let canonical = document.querySelector<HTMLLinkElement>(`link[rel="canonical"]`);
+        if (!canonical) { canonical = document.createElement(`link`); canonical.rel = `canonical`; document.head.appendChild(canonical); }
+        canonical.href = `https://ruler-tools.vercel.app${pagePaths[page]}`;
 
         const frame = window.requestAnimationFrame(() => {
             const target = document.getElementById(targetId);

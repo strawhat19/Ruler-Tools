@@ -7,6 +7,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useRef, use
 type Sort = `featured` | `name`;
 
 interface DirectoryState {
+    storageError: string;
     query: string;
     category: Category;
     platform: Platform;
@@ -31,6 +32,8 @@ const normalize = (value: string) => value.normalize(`NFKC`).trim().toLowerCase(
 
 export function DirectoryProvider({ children }: { children: ReactNode }) {
     const hydrated = useRef(false);
+    const persistenceAllowed = useRef(true);
+    const [storageError, setStorageError] = useState(``);
     const pendingToggles = useRef(new Set<string>());
     const [query, setQuery] = useState(``);
     const [sort, setSort] = useState<Sort>(`featured`);
@@ -54,9 +57,12 @@ export function DirectoryProvider({ children }: { children: ReactNode }) {
                     restored = [...new Set(parsed.filter(
                         (id): id is string => typeof id === `string` && validIds.has(id),
                     ))];
+                } else {
+                    throw new Error(`Saved tools have an unreadable format.`);
                 }
             } catch {
-                // Storage can be unavailable; saved tools still work in memory.
+                persistenceAllowed.current = false;
+                if (active) setStorageError(`Device storage could not be read. Existing stored data has not been overwritten; new selections last for this session only.`);
             }
 
             if (!active) return;
@@ -78,9 +84,9 @@ export function DirectoryProvider({ children }: { children: ReactNode }) {
     }, []);
 
     useEffect(() => {
-        if (!storageReady) return;
+        if (!storageReady || !persistenceAllowed.current) return;
         void AsyncStorage.setItem(storageKey, JSON.stringify(savedIds)).catch(() => {
-            // Keep the current in-memory selection when persistence fails.
+            setStorageError(`Device storage could not be saved. Your latest selections may last for this session only.`);
         });
     }, [savedIds, storageReady]);
 
@@ -124,6 +130,7 @@ export function DirectoryProvider({ children }: { children: ReactNode }) {
     }, [query, category, platform, savedOnly, savedIds, sort]);
 
     const value = useMemo<DirectoryState>(() => ({
+        storageError,
         sort,
         query,
         savedIds,
@@ -139,7 +146,7 @@ export function DirectoryProvider({ children }: { children: ReactNode }) {
         setSavedOnly,
         filteredTools,
         savedCount: savedIds.length,
-    }), [sort, query, savedIds, category, platform, savedOnly, toggleSaved, resetFilters, filteredTools]);
+    }), [storageError, sort, query, savedIds, category, platform, savedOnly, toggleSaved, resetFilters, filteredTools]);
 
     return (
         <DirectoryContext.Provider value={value}>
